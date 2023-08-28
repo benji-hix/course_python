@@ -1,38 +1,38 @@
-num1 = 42
-num2 = 2.3
-boolean = True
-string = 'Hello World'
-pizza_toppings = ['Pepperoni', 'Sausage', 'Jalepenos', 'Cheese', 'Olives']
-person = {'name': 'John', 'location': 'Salt Lake', 'age': 37, 'is_balding': False}
-fruit = ('blueberry', 'strawberry', 'banana')
-print(type(fruit))
-print(pizza_toppings[1])
+num1 = 42 # variable declaration
+num2 = 2.3  # number float
+boolean = True # boolean
+string = 'Hello World' # string
+pizza_toppings = ['Pepperoni', 'Sausage', 'Jalepenos', 'Cheese', 'Olives'] # list
+person = {'name': 'John', 'location': 'Salt Lake', 'age': 37, 'is_balding': False} # dictionary
+fruit = ('blueberry', 'strawberry', 'banana') # tuple
+print(type(fruit)) # type check
+print(pizza_toppings[1]) # log 
 pizza_toppings.append('Mushrooms')
 print(person['name'])
 person['name'] = 'George'
 person['eye_color'] = 'blue'
 print(fruit[2])
 
-if num1 > 45:
+if num1 > 45: # if statement
     print("It's greater")
-else:
+else: # else
     print("It's lower")
 
-if len(string) < 5:
+if len(string) < 5: # length check
     print("It's a short word!")
-elif len(string) > 15:
+elif len(string) > 15: # elseif 
     print("It's a long word!")
 else:
     print("Just right!")
 
-for x in range(5):
+for x in range(5): # for loop
     print(x)
 for x in range(2,5):
     print(x)
 for x in range(2,10,3):
     print(x)
 x = 0
-while(x < 5):
+while(x < 5): # while loop
     print(x)
     x += 1
 
@@ -71,10 +71,10 @@ print_hello_x_or_ten_times(4)
 
 
 """
-Bonus section
+Bonus section # comment multiline
 """
 
-# print(num3)
+# print(num3) # comment single line
 # num3 = 72
 # fruit[0] = 'cranberry'
 # print(person['favorite_team'])
