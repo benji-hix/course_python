@@ -51,8 +51,8 @@ class Bank_Account:
 account_chime = Bank_Account('chime', 2, 500)
 account_sofi = Bank_Account('sofi', 4.5, 4000)
 
-account_chime.deposit(50).deposit(50).deposit(50).withdraw(5).yield_interest().display_account_info()
-account_sofi.deposit(1000).deposit(1000).withdraw(1000).withdraw(1000).withdraw(1000).withdraw(1000).yield_interest().display_account_info()
+# account_chime.deposit(50).deposit(50).deposit(50).withdraw(5).yield_interest().display_account_info()
+# account_sofi.deposit(1000).deposit(1000).withdraw(1000).withdraw(1000).withdraw(1000).withdraw(1000).yield_interest().display_account_info()
 
 # bonus
 Bank_Account.all_accounts_info()
