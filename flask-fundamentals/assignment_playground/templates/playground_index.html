@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Playground</title>
+    <style>
+        @import url("https://use.typekit.net/rca4avu.css");
+        body {
+            background-color: #1b1919;
+            color: #f7f7f7;
+            font-family: "minerva-modern", sans-serif;
+        }
+        .container-title {
+            margin: 3% auto;
+            display: flex;
+            justify-content: center;
+        }
+        .container_content {
+            margin: 3% auto;
+            max-width: 90%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 2rem
+        }
+        .content-box {
+            aspect-ratio: 1/1;
+            width: 14rem;
+            border: 1px solid #ccc1bc;
+            background-color: #8a7b79;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-title">
+        <h1>Welcome!</h1>
+    </div>
+    <div class="container_content">
+        {% for i in range(0, box_number): %}
+            <div class="content-box" style="background-color:#{{ box_color }};"></div>
+        {% endfor %}
+    </div>
+</body>
+</html>

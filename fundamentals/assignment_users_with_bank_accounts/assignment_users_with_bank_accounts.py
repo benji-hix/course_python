@@ -62,6 +62,7 @@ user_benji.transfer_money_self('chime_bank', 50, 'chase_bank')
 
 user_liz = User('liz hix', 'liz.hix@outlook.com')
 user_liz.new_account('sofi_bank').new_account('capital_one_bank')
+
 user_benji.transfer_money_other('chime_bank', 25, user_liz, 'sofi_bank')
 user_benji.account_balances()
 user_liz.account_balances()
