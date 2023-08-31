@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Table</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='html_table.css') }}"
+</head>
+<body>
+    <!-- <div class="container-table container-horizontal-main flex-center"> -->
+        <table class="table-users">
+            <tr class="table-row">
+                <th class="table-box">First Name</th>
+                <th class="table-box">Last Name</th>
+                <th class="table-box">Full Name</th>
+            </tr>
+            {% for user in users %}
+                <tr class="table-row ">
+                    <td class="table-box">{{ user['first_name'] }}</td>
+                    <td class="table-box">{{ user['last_name'] }}</td>
+                    <td class="table-box">{{ user['first_name'] + " " + user['last_name'] }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    <!-- </div> -->
+
+    <script src="{{ url_for('static', filename='html_table.js') }}"></script>
+</body>
+</html>

@@ -2,11 +2,9 @@
 <p>Phrase: {{ phrase }}</p>
 <p>Times: {{ times }}</p>
       
-{% for x in range(0,times): %}
-    <p>{{ phrase }}</p>
-{% endfor %}
-      
-{% if phrase == "hello" %}
-  <p>The phrase says hello</p>
-{% endif %}
 
+<h1>people's favorite soup</h1>
+
+{% for person in persons %}
+<p>{{ person['name'] }} - {{ person['soup'] }}</p>
+{% endfor %}
