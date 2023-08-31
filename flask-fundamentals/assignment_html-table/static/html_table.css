@@ -162,13 +162,4 @@ table * {
     font-weight: normal;
     
 }
-.table-row {
-    justify-content: space-between;
-}
-th {
-    text-align: start;
-}
-td {
-    text-align: start;
-}
 /* -----
