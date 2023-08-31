@@ -47,6 +47,15 @@ class SList:
         new_node.next = temp
         return self
 
+    def remove_val(self, val):
+        runner = self.head
+        while (runner.next != None):
+            if runner.next.value == val:
+                runner.next = runner.next.next
+                return self
+            else:
+                runner = runner.next
+
     def print_values(self):
         runner = self.head # points to list's first node
         while (runner != None):
@@ -62,11 +71,13 @@ class SLNode:
 my_singly_linked_list = SList()
 
 # ---------------- testing adding/removing from front and back --------------- #
-my_singly_linked_list.add_to_front('are').add_to_back('fun').add_to_front('linked lists').print_values()
-print("")
-my_singly_linked_list.remove_from_back().remove_from_front().print_values()
+# my_singly_linked_list.add_to_front('are').add_to_back('fun').add_to_front('linked lists').print_values()
+# print("")
+# my_singly_linked_list.remove_from_back().remove_from_front().print_values()
 
-# ----------------------------- testing insertion ---------------------------- #
+# ------------------- testing for middle insertion/removal ------------------- #
 my_singly_linked_list.add_to_front('a').add_to_back('b').add_to_back('c').add_to_back('d').add_to_back('e').print_values()
 print('')
 my_singly_linked_list.insert_at_n('x', 3).print_values()
+print('')
+my_singly_linked_list.remove_val('c').print_values()
