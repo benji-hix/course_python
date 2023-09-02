@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='survey.css') }}">
+</head>
+<body>
+<div class="container-results container-main">
+    <h2>Submitted Info:</h2>
+    <table class="table-information table width-max">
+        <tr>
+            <td>Name: </td>
+            <td class="right">{{ session['name'] }}</td>
+        </tr>
+        <tr>
+            <td>Location: </td>
+            <td class="right">{{ session['location'] }}</td>
+        </tr>
+        <tr>
+            <td>Favourite Language: </td>
+            <td class="right">{{ session['language'] }}</td>
+        </tr>
+        <tr>
+            <td>Comment: </td>
+            <td class="right">{{ session['comment'] }}</td>
+        </tr>
+    </table>
+    <form action="/return" method="post">
+        <button name="button-return" value="return">return</button>
+    </form>
+</div>
+</body>
+</html>

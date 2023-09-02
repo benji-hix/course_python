@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='survey.css') }}">
+</head>
+<body>
+<div class="container-main vertical-flex-center">
+    <form action="/submit" method="post" class="form vertical-flex-center">
+
+        <div class="container1 container-name flex-center">
+            <span class="label">Your Name:</span>
+            <textarea name="input-name" class="textarea-small"></textarea>
+        </div>
+
+        <div class="container1 container-location flex-center">
+            <span class="label">Dojo Location:</span>
+            <select name="input-location" class="select">
+                <option value="Seattle">Seattle</option>
+                <option value="Los Angeles">Los Angeles</option>
+                <option value="New York">New York</option>
+            </select>
+        </div>
+
+        <div class="container1 container-language flex-center">
+            <span class="label">Favorite Language:</span>
+            <select name="input-language" class="select">
+                <option value="JavaScript">JavaScript</option>
+                <option value="Python">Python</option>
+                <option value="HTML">HTML</option>
+            </select>
+        </div>
+
+        <span class="label text-comment">Comment: </span>
+        <br>
+        <textarea name="input-comment" class="textarea-large width-max"></textarea>
+        <br>
+        <input type="submit" name="input-submit" class="button-submit">
+    </form>
+</div>
+</body>
+</html>
