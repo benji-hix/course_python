@@ -81,3 +81,5 @@ print('')
 my_singly_linked_list.insert_at_n('x', 3).print_values()
 print('')
 my_singly_linked_list.remove_val('c').print_values()
+
+print(int('5') + int('6'))

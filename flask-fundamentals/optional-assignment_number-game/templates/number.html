@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>guess the number</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='number.css') }}"">
+</head>
+<body>
+    <div class="container-horizontal-main vertical-flex-center">
+        <h1>Welcome to the number game.</h1>
+        <h2>I am thinking of a number between 1 and 100. Please guess.</h2>
+        <div class="container-incorrect vertical-flex-center" style="display: {{ display_incorrect }}">
+            {{ session['phrase'] }}
+        </div>
+        <div class="container-correct vertical-flex-center" style="display: {{ display_correct }}">
+            {{ session['correct_number']|string + session['phrase'] }}
+        </div>
+        <form action="/guess" method="post" class="vertical-flex-center form">
+            <textarea name="user-guess" class="textarea"></textarea>
+            <input type="submit" name="button_submit" value="submit" class="button">
+        </form>
+    </div>
+
+</body>
+</html>

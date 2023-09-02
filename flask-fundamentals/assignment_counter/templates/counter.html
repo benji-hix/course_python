@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>counter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='counter.css') }}">
+</head>
+<body>
+    <form action='/click' method="post">
+        <div class='title vertical-flex-center'>
+            <h1>Counter</h1>
+            <h2>{{ session['count'] }}</h2>
+        </div>
+        <div class="container-buttons flex-center">
+            <button name="count-up" value="count-up-1">count + 1</button>
+            <button name="reset" value="reset-1">reset</button>
+        </div>
+    </form>
+</body>
+</html>

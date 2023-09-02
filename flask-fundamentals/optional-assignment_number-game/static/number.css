@@ -1,0 +1,179 @@
+/* -------------------------------------------------------------------------- */
+/*                               style defaults                               */
+/* -------------------------------------------------------------------------- */
+@import url("https://use.typekit.net/rca4avu.css");
+
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "minerva-modern", sans-serif;
+    transition: 250ms;
+}
+body {
+    background-color: #1b1919;
+    color: #f4f0ed;
+    letter-spacing: 1px;
+}
+h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    margin-bottom: .625rem;
+}                                                                                                                                                                                                               
+h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: .5625rem;
+}
+h3 {
+    font-size: 1.1875rem;
+    font-weight: normal;
+    margin-bottom: .5625rem;
+}
+h4 {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-bottom: .5625rem;
+}
+h5 {
+    font-size: 1.5rem;
+    font-weight: 500;
+    margin-bottom: .5rem;
+    font-family: "plantin", serif;
+    font-weight: 300;
+}
+h6 {
+    font-size: 1.1875rem;
+    font-weight: normal;
+    margin-bottom: .5rem;
+    font-family: "plantin", serif;
+    font-weight: 300;
+}
+span {
+    font-size: 1rem;
+    margin-bottom: 0;
+    line-height: 1.4375rem;
+}
+p {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    line-height: 1.4375rem;
+}
+a {
+    font-size: 1rem;
+    margin-bottom: .5rem;
+    color: #15141a;
+}
+label {
+    margin-bottom: 0;
+    font-size: 1rem;
+}
+.button {
+    box-sizing:border-box;
+    padding: .5rem 1rem;
+    background-color: #4c4241;
+    color: #f7f7f7;
+    font-size: 1rem;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 250ms;
+    letter-spacing: 1px;
+
+}
+select {
+    padding: .5rem 1rem;
+    border: none;
+    font-family: "minerva-modern", sans-serif;
+    background-color: #4c4241;
+    color: #f7f7f7;
+    font-size: .875rem;
+    letter-spacing: 1px;
+}
+option {
+    font-family: "minerva-modern", sans-serif;
+}
+/* -------------------------------------------------------------------------- */
+/*                                   tables                                   */
+/* -------------------------------------------------------------------------- */
+.table {
+    border-collapse: collapse;
+    border: 1px solid #1b1519;
+    width: 50%;
+}
+.table-box {
+    padding: .625rem .5rem;
+    border: 1px dotted #1b1519;
+}
+.table th {
+    background-color: #4c4241;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+.table td {
+    background-color: #2a2627;
+    font-size: 1rem;
+    font-weight: normal;
+    
+}
+/* -------------------------------------------------------------------------- */
+/*                             general classes                                */
+/* -------------------------------------------------------------------------- */
+.container-horizontal-main {
+    margin: 3% auto;
+    max-width: 60rem;
+}
+.flex-center {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 1rem;
+}
+.vertical-flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                element style                               */
+/* -------------------------------------------------------------------------- */
+
+.container-incorrect {
+    background-color: #7a3833;
+    aspect-ratio: 1 / 1;
+    width: 20rem;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+}
+.container-correct {
+    background-color: #317873;
+    aspect-ratio: 1 / 1;
+    width: 20rem;
+    justify-content: center;
+    font-size: 2rem;
+    text-align: center;
+}
+/* -------------------------------------------------------------------------- */
+/*                               hover functions                              */
+/* -------------------------------------------------------------------------- */
+.mouseover-button {
+    /* position: relative;
+    right: 2px;
+    bottom: 2px; */
+    cursor: pointer;
+    /* box-shadow: 2px 2px 2px #151416; */
+    background-color: #7a3833;
+}
+.mouseover-text {
+    color: #7a3833;
+    cursor: pointer;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+}
+.mouseover-button-tempo {
+    color: #7a3833;
+    cursor: pointer;
+}
