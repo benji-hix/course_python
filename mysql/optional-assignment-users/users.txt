@@ -1,0 +1,23 @@
+USE schema_users;
+
+INSERT INTO users (id, first_name, last_name, email, created_at, updated_at)
+   VALUES (1, 'Benji', 'Hix', 'benji@outlook.com', NOW(), NOW()),
+   (2, 'Liz', 'Hix', 'liz@outlook.com', NOW(), NOW()),
+   (3, 'Judith', 'Hix', 'judith@outlook.com', NOW(), NOW());
+
+SELECT * FROM users;
+
+SELECT first_name, last_name FROM users
+   WHERE email = 'benji@outlook.com';
+
+SELECT first_name, last_name FROM users 
+   WHERE id = 3;
+
+UPDATE schema_users.users
+   SET last_name = 'Pancakes'
+   WHERE id = 3;
+
+DELETE FROM schema_users.users WHERE id = 2;
+
+SELECT * FROM USERS
+   ORDER BY first_name DESC;

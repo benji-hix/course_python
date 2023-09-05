@@ -1,0 +1,44 @@
+USE dojos_and_ninjas_schema
+
+INSERT INTO dojos (id, name, created_at, updated_at)
+VALUES (1, 'Seattle', NOW(), NOW()), 
+(2, 'Los Angeles', NOW(), NOW()), (3, 'New York', NOW(), NOW());
+
+DELETE FROM dojos WHERE id IN (1, 2, 3);
+
+INSERT INTO dojos (id, name, created_at, updated_at)
+VALUES (1, 'Kyoto', NOW(), NOW()), (2, 'Osaka', NOW(), NOW()),
+(3, 'Kobe', NOW(), NOW());
+
+INSERT INTO ninjas (id, first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES (1, 'Ryuichi', 'Sakamoto', 49, 1, NOW(), NOW()), 
+(2, 'Banana', 'Yoshimoto', 59, 1, NOW(), NOW()),
+(3, 'Haruki', 'Murakami', 65, 1, NOW(), NOW());
+
+INSERT INTO ninjas (id, first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES (4, 'Miyuki', 'Hatakeyama', 38, 2, NOW(), NOW()), 
+(5, 'Hiroyuki', 'Sawano', 43, 2, NOW(), NOW()),
+(6, 'Hikaru', 'Utada', 40, 2, NOW(), NOW());
+
+INSERT INTO ninjas (id, first_name, last_name, age, dojo_id, created_at, updated_at)
+VALUES (7, 'Masafumi', 'Gotoh', 35, 3, NOW(), NOW()), 
+(8, 'Yoko', 'Kanno', 59, 3, NOW(), NOW()),
+(9, 'Hikaru', 'Shirosu', 34, 3, NOW(), NOW());
+
+SELECT concat(first_name, ' ', last_name) AS full_name FROM ninjas
+WHERE dojo_id = 1;
+
+SELECT concat(first_name, ' ', last_name) AS full_name FROM ninjas
+WHERE dojo_id = 3;
+
+SELECT CONCAT(ninjas.first_name, ' ', ninjas.last_name) AS full_name, 
+   dojos.name AS dojo_name FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id
+WHERE ninjas.id = 9;
+
+SELECT * FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id
+WHERE ninjas.id = 6;
+
+SELECT * FROM ninjas
+JOIN dojos ON dojos.id = ninjas.dojo_id;
