@@ -1,0 +1,11 @@
+AttributeError: type object 'Friend' has no attribute 'get_all'
+-- class method wasn't indented in friend.py
+
+pymysql.err.OperationalError: (1049, "Unknown database 'first_flask'")
+-- typo "ressults" in class method and table name was 'first_flask_schema', not 'first_flask'
+
+jinja2.exceptions.TemplateNotFound: index.html
+-- index.html file wasn't made
+
+error: blank page
+-- index.html was blank 
