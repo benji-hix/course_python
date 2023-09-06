@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-users container-main vertical-flex-center">
+        <h2>All Users</h2>
+        <table class="table-information table width-max">
+            <tr>
+                <th class="table-head">ID</th>
+                <th class="table-head">Full Name</th>
+                <th class="table-head">Email</th>
+                <th class="table-head">Created At</th>
+                <th class="table-head">Actions</th>
+            </tr>
+            {% for each_user in all_users %}
+                <tr>
+                    <td class="table-data">{{ each_user.id }}</td>
+                    <td class="table-data">{{ each_user.first_name + ' ' + each_user.last_name }}</td>
+                    <td class="table-data">{{ each_user.email }}</td>
+                    <td class="table-data">{{ each_user.created_at }}</td>
+                    <td class="table-data flex-center">
+                        <a href="/users/{{ each_user.id }}" name="a_show_user">Show</a>
+                        <a href="/users/{{ each_user.id }}/update" name="a_edit_user">Edit</a>
+                        <a href="/users/{{ each_user.id }}/delete" name="a_delete_user">Delete</a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+        <a name="a_new_user" value="new_user" href="/users/new">Create a new user</a>
+    </div>
+</body>
+</html>

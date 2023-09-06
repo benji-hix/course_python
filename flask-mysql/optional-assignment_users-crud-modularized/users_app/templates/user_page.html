@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users | {{ first_name }} </title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-nav-bar flex-center">
+        <h1>{{ input_phrase + user.id|string }}</h1>
+        <a href="/users" name="a_home">Home</a>
+    </div>
+
+    <div class="container-main vertical-flex-center container-user" style="display: {{ display_read }}">
+        <div class="container-info flex-between">
+            <p>Full Name: </p>
+            <p>{{ user.first_name + ' ' + user.last_name }}</p>
+        </div>
+        <div class="container-info flex-between">
+            <p>Email: </p>
+            <p>{{ user.email }}</p>
+        </div>
+        <div class="container-info flex-between">
+            <p>Created On:</p>
+            <p>{{ user.created_at }}</p>
+        </div>
+        <div class="container-info flex-between">
+            <p>Last Updated: </p>
+            <p>{{ user.updated_at }}</p>
+        </div>
+        <div class="align-start">
+            <a href="/users/{{ user.id }}/update" name="a_update_user">Edit</a>
+            <a href="/users/{{ user.id }}/delete" name="a_delete_user">Delete</a>
+        </div>
+    </div>    
+
+    <div class="container-main vertical-flex-center form-update" style="display: {{ display_update }}">
+        <form action="/submit_update" method="post" class="form vertical-flex-evenly">
+            <input type="hidden" name="form_id" value="{{ user.id }}">
+            <div class="container1 container-name flex-center">
+                <span class="label">First Name:</span>
+                <input type="text" name="form_first_name" class="textarea-small" value="{{ user.first_name }}">
+            </div>
+            <div class="container1 container-name flex-center">
+                <span class="label">Last Name:</span>
+                <input type="text" name="form_last_name" class="textarea-small" value="{{ user.last_name }}">
+            </div>
+            <div class="container1 container-name flex-center">
+                <span class="label">Email:</span>
+                <input type="text" name="form_email" class="textarea-small" value="{{ user.email }}">
+            </div>
+    
+            <input type="submit" name="input-submit" class="button-submit" value = "Update">
+            <a href="/users/{{ user.id }}">Back to user info</a>
+        </form>
+    </div>
+</body>
+</html>
