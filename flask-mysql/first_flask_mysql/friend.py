@@ -27,3 +27,10 @@ class Friend:
         query = "INSERT INTO friends ( first_name , last_name , occupation , created_at, updated_at ) VALUES ( %(fname)s , %(lname)s , %(occ)s , NOW() , NOW() );"
         # data is a dictionary that will be passed into the save method from server.py
         return connectToMySQL('first_flask_schema').query_db( query, data )
+
+    @classmethod
+    def return_one(cls, friend_id):
+        query = "SELECT * FROM friends WHERE id = %(id)s;"
+        data = {'id' : friend_id }
+        results = connectToMySQL('first_flask_schema').query_db(query, data)
+        return cls(results[0])

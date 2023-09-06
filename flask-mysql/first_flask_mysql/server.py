@@ -5,21 +5,19 @@ app = Flask(__name__)
 @app.route("/")
 def index():
     # call the get all classmethod to get all friends
-    friends = Friend.get_all()
-    print(friends)
-    return render_template("index.html", all_friends = friends)
+    all_friends = Friend.get_all()
+    return render_template("index.html", all_friends = all_friends)
 
 @app.route('/create_friend', methods = ['POST'])
 def create_friend():
-    data = {
-        'fname': request.form['fname'],
-        'lname': request.form['lname'],
-        'occ': request.form['occ']
-    }
-
-    Friend.save(data)
+    Friend.save(request.form)
     
     return redirect('/')
+
+@app.route('/friend/id/<int:friend_id>')
+def show_one(friend_id):
+    friend = Friend.return_one(friend_id)
+    return render_template('show_friend.html', friend = friend)
 
 if __name__ == "__main__":
     app.run(debug=True)

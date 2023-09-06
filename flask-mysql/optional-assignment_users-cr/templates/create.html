@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create</title>
+    <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-main vertical-flex-center">
+        <form action="/submit" method="post" class="form vertical-flex-evenly">
+            <h1>Add a New User</h1>
+
+            <div class="container1 container-name flex-center">
+                <span class="label">First Name:</span>
+                <input type="text" name="form_first_name" class="textarea-small">
+            </div>
+            <div class="container1 container-name flex-center">
+                <span class="label">Last Name:</span>
+                <input type="text" name="form_last_name" class="textarea-small">
+            </div>
+            <div class="container1 container-name flex-center">
+                <span class="label">Email:</span>
+                <input type="text" name="form_email" class="textarea-small">
+            </div>
+    
+            <input type="submit" name="input-submit" class="button-submit" value = "create">
+        </form>
+    </div>
+</body>
+</html>
