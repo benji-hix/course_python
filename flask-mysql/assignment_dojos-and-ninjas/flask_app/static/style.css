@@ -92,7 +92,7 @@ select {
 option {
     font-family: "minerva-modern", sans-serif;
 }
-ul li {
+ul li, ol li {
     width: 100%;
     list-style: none;
     letter-spacing: 0;
