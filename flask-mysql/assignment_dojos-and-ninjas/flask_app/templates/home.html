@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and Ninjas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-main flex">
+        <!-- New Dojo block -->
+        <div class="container-medium w15 no-background center-h">
+            <h1 class="margin-b2 textwrap-off">New Ninja</h1>
+            <form action="/submit_dojo" method="post" class="flex v start-a">
+                <label for="form_name" class="input margin-b1">
+                    <span>Name:</span>
+                    <input type="text" name="form_name">
+                </label>
+                <input type="submit" value="create" class="button self-center">
+            </form>
+        </div>
+        <!-- All Dojos block -->
+        <div class="container-medium flex v w20 no-background">
+            <h1 class="textwrap-off">All Dojos</h1>
+            <div class="container-mini flex v start-a w-max border-1">
+                <ul>
+                    {% for dojo in all_dojos %}
+                    <li><a href="/dojos/{{ dojo.id }}">{{ dojo.name }}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <a href="/ninjas" class="color-beige2">Add Ninja</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

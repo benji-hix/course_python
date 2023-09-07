@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and Ninjas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-main">
+        <!-- New Dojo block -->
+        <div class="container-medium w20 no-background ">
+            <h1 class="margin-b2 textwrap-off">New Dojo</h1>
+
+            <form action="/submit_ninjas" method="post" class="flex v start-a">
+                <label for="form_dojo_id" class="input margin-b1 w-max">
+                    <span>Dojo:</span>
+                    <select name="form_dojo_id" class="w10">
+                        {% for dojo in all_dojos%}
+                        <option value="{{ dojo.id }}">{{ dojo.name }}</option>
+                        {% endfor %}
+                    </select>
+                </label>
+                <label for="form_first_name" class="input margin-b1 w-max">
+                    <span>First Name:</span>
+                    <input type="text" name="form_first_name" class="w10">
+                </label>
+                <label for="form_last_name" class="input margin-b1 w-max">
+                    <span>Last Name:</span>
+                    <input type="text" name="form_last_name" class="w10">
+                </label>
+                <label for="form_age" class="input margin-b1 w-max">
+                    <span>Age:</span>
+                    <input type="text" name="form_age" class="w10">
+                </label>
+
+                <input type="submit" value="create" class="button margin-b2">
+                <a href="/dojos">Home</a>
+            </form>
+        </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

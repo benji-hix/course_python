@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dojos and Ninjas</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">>
+</head>
+<body>
+    <div class="view-main">
+        <div class="container-medium">
+            <h1 class="margin-b2">{{ dojo.name }} Ninjas</h1>
+            <table class="table margin-b2">
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last_Name</th>
+                        <th>Age</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ninja in dojo_ninjas %}
+                    <tr>
+                        <td>{{ ninja.first_name}}</td>
+                        <td>{{ ninja.last_name }}</td>
+                        <td>{{ ninja.age }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            <a href="/dojos">Home</a>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

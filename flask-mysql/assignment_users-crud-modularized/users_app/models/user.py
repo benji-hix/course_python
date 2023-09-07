@@ -31,7 +31,7 @@ class User:
     @classmethod
     def read(cls, user_id):
         query = """SELECT * FROM users
-                WHERE id = %(id)s"""
+                WHERE id = %(id)s;"""
         data = {'id': user_id}
         results = connectToMySQL(cls.user_database).query_db(query, data)
         return results[0]
@@ -40,13 +40,13 @@ class User:
     def update(cls, data):
         query = """UPDATE users 
                 SET first_name = %(form_first_name)s, last_name = %(form_last_name)s, email = %(form_email)s, updated_at = NOW() 
-                WHERE id = %(form_id)s"""
+                WHERE id = %(form_id)s;"""
         return connectToMySQL(cls.user_database).query_db(query, data)
 
 
     @classmethod
     def delete(cls, user_id):
         query = """DELETE FROM users
-                WHERE id = %(id)s"""
+                WHERE id = %(id)s;"""
         data = {"id": user_id}
         return connectToMySQL(cls.user_database).query_db(query, data)

@@ -1,4 +1,4 @@
-from flask import flask
+from flask import Flask
 
-app = name(__name__)
+app = Flask(__name__)
 app.secret_key = "yoshi"
