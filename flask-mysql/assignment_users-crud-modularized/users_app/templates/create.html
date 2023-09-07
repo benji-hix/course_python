@@ -7,29 +7,34 @@
     <link rel="stylesheet" href=" {{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container-main vertical-flex-center">
-        <div class="container-nav-bar flex-center">
-            <h1>{{ input_phrase }}</h1>
+    <div class="view-main">
+        
+        <div class="container-nav-bar">
+            <h1 class="">{{ input_phrase }}</h1>
             <a href="/users" name="a_home">Home</a>
         </div>
 
-        <form action="/submit_new" method="post" class="form vertical-flex-evenly">
-
-            <div class="container1 container-name flex-center">
-                <span class="label">First Name:</span>
-                <input type="text" name="form_first_name" class="textarea-small">
-            </div>
-            <div class="container1 container-name flex-center">
-                <span class="label">Last Name:</span>
-                <input type="text" name="form_last_name" class="textarea-small">
-            </div>
-            <div class="container1 container-name flex-center">
-                <span class="label">Email:</span>
-                <input type="text" name="form_email" class="textarea-small">
-            </div>
-    
-            <input type="submit" name="input-submit" class="button-submit" value = "create">
-        </form>
+        <div class="container-small w20 center-h">
+            <form action="/submit_new" method="post" class="flex v">
+                
+                <label for="form_first_name" class="input">
+                    <span>First Name:</span>
+                    <input type="text" name="form_first_name" class="textarea-small">
+                </label>
+                <label for="form_last_name" class="input">
+                    <span>Last Name:</span>
+                    <input type="text" name="form_last_name" class="textarea-small">
+                </label>
+                <label for="form_email" class="input">
+                    <span>Email:</span>
+                    <input type="text" name="form_email" class="textarea-small">
+                </label>
+        
+                <input type="submit" name="input-submit" class="self-start button" value = "create">
+            </form>
+         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 </html>
