@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+</head>
+<body>
+    <div class="view-main">
+        <div class="container flex v evenly start-a center-h">
+            <h2>Submitted Info:</h2>
+            {% for entry in survey_data %}
+            <table class="table margin-b1">
+                <tbody>
+                <tr>
+                    <td>Name: </td>
+                    <td class="right">{{ entry.name }}</td>
+                </tr>
+                <tr>
+                    <td>Location: </td>
+                    <td class="right">{{ entry.location }}</td>
+                </tr>
+                <tr>
+                    <td>Favourite Language: </td>
+                    <td class="right">{{ entry.language }}</td>
+                </tr>
+                <tr>
+                    <td>Comment: </td>
+                    <td class="right">{{ entry.comment }}</td>
+                </tr>
+            </tbody>
+            </table>
+            {% endfor %}
+            <a href="/survey" class="button-anchor">Return</a>
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+</body>
+</html>

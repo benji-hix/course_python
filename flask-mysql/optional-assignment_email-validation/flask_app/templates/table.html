@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEFAULT</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-main">
+        <div class="container-small success center-h flex center-j center-a">
+            <span>{{ session['email'] }} is a valid address. Thank you.</span>
+        </div>
+        <div class="container center-h background-off">
+            <table class="table margin-b2">
+                <thead>
+                    <tr class="table-row">
+                        <th>Email:</th>
+                        <th>Submitted On:</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for row in all_emails %}
+                    <tr class="table-row">
+                        <td>{{ row.email }}</td>
+                        <td>{{ row.created_at }}</td>
+                        <td><a href="/delete/{{ row.id }}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+            <a href="/" class="button-anchor right-auto w5">Add</a>
+    </div>
+
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

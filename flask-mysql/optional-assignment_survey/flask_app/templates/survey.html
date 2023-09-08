@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+</head>
+<body>
+    <div class="view-main">
+        <div class="container center-h">
+            <form action="/submit" method="post" class="form">
+                <h2>Survey:</h2>
+
+                <label class="input w-max">
+                    <span>Your Name:</span>
+                    <input type="text" name="form_name" class="w8">
+                </label>
+
+                <label class="input w-max">
+                    <span>Dojo Location:</span>
+                    <select name="form_location" class="w8">
+                        <option value="Seattle">Seattle</option>
+                        <option value="Los Angeles">Los Angeles</option>
+                        <option value="New York">New York</option>
+                    </select>
+                </label>
+
+                <label class="input w-max">
+                    <span>Favorite Language:</span>
+                    <select name="form_language" class="w8">
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="HTML">HTML</option>
+                    </select>
+                </label>
+
+                <label class="input v w-max">
+                    <span class="self-start">Comment:</span>
+                    <textarea name="form_comment" class="w-max"></textarea>
+                </label>
+
+                <input type="submit" name="input-submit" class="button" value="Submit Survey">
+            </form>
+            {% for message in get_flashed_messages() %}
+            <br>
+            <h5>{{ message }}</h5>
+            {% endfor %}
+        </div>
+    </div>
+<script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+<script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Enter</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-main">
+        {% for message in get_flashed_messages() %}
+            <div class="container-mini error center-h flex center-j center-a w20">
+                <span>{{ message }}</span>
+            </div>
+        {% endfor %}
+        
+        <div class="container background-off center-h">
+            <form class="form" action="/submit" method="post">
+                <label for="form_email" class="input">
+                    <span>Email Address:</span>
+                    <input type="text" name="form_email" class="w30">
+                </label>
+
+                <input type="submit" class="button left-auto" value="Submit">
+            </form>
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
