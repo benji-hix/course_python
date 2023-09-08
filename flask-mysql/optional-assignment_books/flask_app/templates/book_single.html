@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Show</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-main">
+        <div class="flex">
+
+            <div class="container-medium background-off w20">
+                <h1 class="margin-b2">Title: {{ book_data.title }}</h1>
+                <table class="table">
+                    <thead>
+                        <tr class="table-row">
+                            <th>Favorited by:</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for row in book_data.favorite_authors %}
+                        <tr class="table-row">
+                            <td>{{ row.first_name + ' ' + row.last_name }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="container background-off">
+
+                <h1 class="margin-b2">Add Book to Favorites</h1>
+                <form action="/add_author" method="post" class="form w20">
+                    <label for="form_author_id" class="input">
+                        <span>Author:</span>
+                        <select name="form_author_id">
+                            {% for row in all_authors %}
+                            <option value="{{ row.id }}">{{ row.first_name + ' ' + row.last_name }}</option>
+                            {% endfor %}
+                        </select>
+                    </label>
+
+                    <input type="submit" class="button" value="Add">
+                    <input type="hidden" name="form_book_id" value="{{ redirect_id }}">
+                </form>
+            </div>
+        </div>
+        <a href="/books" class="a-home">Home</a>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

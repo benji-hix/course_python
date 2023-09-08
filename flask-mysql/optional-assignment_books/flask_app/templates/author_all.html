@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-main">
+        <div class="flex">
+        <div class="container flex v start-a background-off">
+                <form action="/submit_author" method="post" class="form w20">
+                
+                    <h1 class="margin-b2">New Author</h1>
+
+                    <label for="form_first_name" class="input w-max">
+                        <span>First Name:</span>
+                        <input type="text" name="form_first_name">
+                    </label>
+                    <label for="form_last_name" class="input w-max">
+                        <span>Last Name:</span>
+                        <input type="text" name="form_last_name">
+                    </label>
+
+                    <input type="submit" class="button self-start" value="Create">
+
+                </form>
+            </div>
+
+            <div class="container-content container-medium background-off">
+                <h1 class="margin-b2">All Authors</h1>
+                <div class="container w20 border-2 background-off">
+                    <ul>
+                        {% for author in all_authors %}
+                        <li><a href="/authors/{{ author.id }}">{{ author.first_name + ' ' + author.last_name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <a href="/books">Add a Book</a>
+            </div>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

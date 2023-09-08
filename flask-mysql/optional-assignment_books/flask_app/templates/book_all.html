@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-main flex v start-a">
+        <div class="flex start-a">
+            <div class="container w20 flex v start-a background-off">
+                <form action="/submit_book" method="post" class="form w20">
+                
+                    <h1 class="margin-b2">New Book</h1>
+
+                    <label for="form_title" class="input w-max">
+                        <span>Title:</span>
+                        <input type="text" name="form_title">
+                    </label>
+                    <label for="form_pages" class="input w-max margin-b1">
+                        <span>Page total:</span>
+                        <input type="text" name="form_pages">
+                    </label>
+
+                    <input type="submit" class="button self-start" value="Create">
+
+                </form>
+            </div>
+        
+            <div class="container-content container-medium background-off">
+                <h1 class="margin-b2">All Books</h1>
+                <div class="container-small w20 border-2 background-off">
+                    <ul>
+                        {% for book in all_books %}
+                        <li><a href="/books/{{ book.id }}">{{ book.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <a href="/authors" class="a-home"">Home</a>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
