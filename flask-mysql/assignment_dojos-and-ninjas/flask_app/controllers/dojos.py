@@ -8,13 +8,13 @@ def index():
     all_dojos = Dojo.get_all()
     return render_template('home.html', all_dojos = all_dojos)
 
-@app.route('/dojos/<int:dojo_id>')
-def show_dojo(dojo_id):
-    dojo = Dojo.read(dojo_id)
-    dojo_ninjas = Ninja.read_ninjas(dojo_id)
-    return render_template('dojos.html', dojo_ninjas = dojo_ninjas, dojo=dojo)
-
 @app.route('/submit_dojo', methods = ['POST'])
 def submit_new_dojo():
     Dojo.create(request.form)
     return redirect('/dojos')
+
+@app.route('/dojos/<int:pk>')
+def show_dojo(pk):
+    dojo = Dojo.read(pk)
+    dojo_ninjas = Dojo.get_dojo_with_ninjas(pk)
+    return render_template('dojos.html', dojo_ninjas = dojo_ninjas, dojo=dojo)
