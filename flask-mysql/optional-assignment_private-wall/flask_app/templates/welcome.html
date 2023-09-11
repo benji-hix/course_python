@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container-nav-bar">
+        <h1 class="right-auto">Coding Dojo Wall</h1>
+        <h2 class="left-auto">Welcome, {{ session['user_name'] }}</h2>
+        <a href="/logout">Log Out</a>
+    </div>
+
+    <div class="view-main w">
+        <div class="container center-h w-max flex between test background-off">
+            <!-- -------------------------- received messages ----------------------------->
+            <div class="container-medium flex v w25 g2 background-off">
+                <h2 class="underline"><span class="crimson2">{{ receive_count.receive_count }}</span> Received Messages</h2>
+                {%for message in all_messages%}
+                <div class="flex between center-a">
+                    <div class="container-mini flex v start-a">
+                        <p class="margin-b0">{{ message.sender_name }} said:</p>
+                        <p class="margin-l2 margin-b0">{{ message.content }}</p>
+                    </div>
+                    <a href='/delete/{{ message.message_id }}' class="button-square"><img src="{{url_for('static', filename='icon-trash.png')}}" class="ratio-1-1 w2"></a>
+                </div>
+                {%endfor%}
+            </div>
+            <!-- ------------------------ received messages end ------------------------ -->
+
+            <div class="divider-vertical"></div>
+
+            <!-- ---------------------------- send messages ---------------------------- -->
+            <div class="container-medium flex v w25 g2 background-off">
+                <div class="flex v g025">
+                    <h2 class="underline margin-b0">Send Messages</h2>
+                    <h4 class="margin-b0 sent-messages crimson2">You have sent {{ sent_count.sent_count }} messages so far</h4>
+                </div>
+
+                <form action="/submit_message" method="post" class="form h start-a g025">
+                    <select name="form_receiver_id">
+                        {%for row in all_logins%}
+                        <option value="{{ row.id }}">{{ row.first_name }}</option>
+                        {%endfor%}
+                    </select>
+                    <textarea name="form_content" class="w10"></textarea>
+                    <input type="submit" class="button" value="Send">
+                </form>
+                <!-- ---------------------------- sent messages ---------------------------- -->
+                {%for message in sent_messages%}
+                <div class="flex between center-a">
+                    <div class="container-mini flex v start-a">
+                        <p class="margin-b0">To {{ message.receiver_name }}:</p>
+                        <p class="margin-l2 margin-b0">{{ message.content }}</p>
+                    </div>
+                    <a href='/delete/{{ message.message_id }}' class="button-square"><img src="{{url_for('static', filename='icon-trash.png')}}" class="ratio-1-1 w2"></a>
+                </div>
+                {%endfor%}
+            </div>
+            <!-- -------------------------- send messages end -------------------------- -->
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

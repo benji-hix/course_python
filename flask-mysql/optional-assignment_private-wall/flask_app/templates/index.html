@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='library-kamote_theme-dark.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="view-main">
+        <div class="flex around center-h">   
+        <!-- ------------------------------ register ------------------------------- -->
+            <div class="container border-1">
+                <h1>Register</h1>
+                    {% for message in get_flashed_messages(category_filter=['register']) %}
+                    <div class="container-mini error center-h flex center-j center-a w15">
+                        <span>{{ message }}</span>
+                    </div>
+                    {% endfor %}
+                <form action="/submit_register" method="post" class="form w15">
+                
+                    <label for="form_first_name" class="input v start-a w-max">
+                        <span>First Name:</span>
+                        <input type="text" name="form_first_name" class="w-max" value="{{ session['form_first_name'] }}">
+                    </label>
+
+                    <label for="form_last_name" class="input v start-a w-max">
+                        <span>Last Name:</span>
+                        <input type="text" name="form_last_name" class="w-max"value="{{session['form_last_name']}}" >
+                    </label>
+
+                    <label for="form_email" class="input v start-a w-max">
+                        <span>Email:</span>
+                        <input type="text" name="form_email" class="w-max"value="{{session['form_email']}}" >
+                    </label>
+
+                    <label for="form_password" class="input v start-a w-max">
+                        <span>Password:</span>
+                        <input type="text" name="form_password" class="w-max" value="{{session['form_password']}}">
+                    </label>
+
+                    <label for="form_pswd_confirm" class="input v start-a w-max margin-b1">
+                        <span>Confirm Password:</span>
+                        <input type="text" name="form_pswd_confirm" class="w-max">
+                    </label>
+                    <input type="submit" class="button" value="Register">
+                </form>
+            </div>
+            <!-- -------------------------------- login -------------------------------- -->
+            <div class="container border-1">
+                <h1>Login</h1>
+                {% for message in get_flashed_messages(category_filter=['login']) %}
+                <div class="container-mini error center-h flex center-j center-a w15">
+                    <span>{{ message }}</span>
+                </div>
+                {% endfor %}
+                <form action="/submit_login" method="post" class="form w15">
+                
+                    <label for="form_email" class="input v start-a w-max">
+                        <span>Email:</span>
+                        <input type="text" name="form_email" class="w-max" value="{{session['form_email']}}">
+                    </label>
+
+                    <label for="form_password" class="input v start-a w-max">
+                        <span>Password:</span>
+                        <input type="text" name="form_password" class="w-max" value="{{session['form_password']}}">
+                    </label>
+
+                    <input type="submit" class="button" value="Login">
+                </form>
+            </div>
+
+
+                </form>
+            </div>
+        </div> 
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="{{ url_for('static', filename='library-kamote_theme-dark.js') }}"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
