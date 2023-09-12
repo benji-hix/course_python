@@ -34,7 +34,7 @@ def submit_login():
     redirect_url = '/welcome/' + str(session['user_id']) #! session['user_id] is set by validate_login
     return redirect(redirect_url)
 
-#! ------------------------- user homepage redirect ------------------------ #
+# ------------------------- user homepage redirect ------------------------ #
 @app.route("/welcome/<int:user_id>")
 def welcome(user_id):
     if not session['logged_in']:
@@ -46,6 +46,8 @@ def welcome(user_id):
     all_logins = login_model.Login.read_logins()
     receive_count = login_model.Login.read_message_receive_count()
     sent_count = login_model.Login.read_message_sent_count()
+    sent_messages = login_model.Login.format_time(sent_messages)
+    all_messages  = login_model.Login.format_time(all_messages)
     return render_template('welcome.html', all_messages = all_messages, all_logins=all_logins, 
         receive_count=receive_count, sent_count=sent_count, sent_messages=sent_messages)
 

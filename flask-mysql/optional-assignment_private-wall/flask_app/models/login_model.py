@@ -121,7 +121,8 @@ class Login:
     def read_messages(cls):
         query = """
         SELECT content, concat(sender.first_name, ' ', sender.last_name) AS sender_name, 
-        messages.id as message_id FROM logins
+        messages.id as message_id, 
+        TIMESTAMPDIFF(HOUR, messages.created_at, CURRENT_TIMESTAMP) as time_elapsed FROM logins
         LEFT JOIN messages on logins.id = messages.receiver_id
         LEFT JOIN logins AS sender ON messages.sender_id = sender.id
         WHERE messages.receiver_id = %(user_id)s
@@ -134,7 +135,8 @@ class Login:
     def read_sent_messages(cls):
         query = """
         SELECT content, concat(receiver.first_name, ' ', receiver.last_name) AS receiver_name, 
-        messages.id as message_id FROM logins
+        messages.id as message_id,
+        TIMESTAMPDIFF(HOUR, messages.created_at, CURRENT_TIMESTAMP) as time_elapsed FROM logins
         LEFT JOIN messages on logins.id = messages.sender_id
         LEFT JOIN logins AS receiver ON messages.receiver_id = receiver.id
         WHERE messages.sender_id = %(user_id)s
@@ -186,3 +188,36 @@ class Login:
         """
         data = { 'message_id' : pk }
         return connectToMySQL(app_database).query_db(query, data)
+
+    # --------------------------- format hours elapsed --------------------------- #
+    @staticmethod
+    def format_time(list):
+        for row in list:
+            hours = row['time_elapsed']
+            formatted_time = 0
+            unit = ''
+            if hours >= 8760:
+                formatted_time =int(hours / 8760)
+                if formatted_time == 1: unit = ' year'
+                else: unit = ' years'
+            elif hours >= 730:
+                formatted_time = int(hours / 730)
+                if formatted_time == 1: unit = ' month'
+                else: unit = ' months'
+            elif hours >= 168:
+                formatted_time = int(hours / 168)
+                if formatted_time == 1: unit = ' week'
+                else: unit = ' weeks'
+            elif hours >= 24:
+                formatted_time = int(hours / 24)
+                if formatted_time == 1: unit = ' day'
+                else: unit = ' days'
+            elif hours >= 1:
+                formatted_time = hours
+                if formatted_time == 1: unit = ' hour'
+                else: unit = ' hours'
+            else:
+                row['time_elapsed'] = 'less than 1 hour'
+            
+            row['time_elapsed'] = str(formatted_time) + unit
+        return list

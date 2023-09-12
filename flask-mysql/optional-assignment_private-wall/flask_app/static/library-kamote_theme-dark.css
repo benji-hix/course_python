@@ -101,7 +101,7 @@ ul li {
 /* -------------------------------------------------------------------------- */
 .view-main {
     margin: 3rem auto;
-    max-width: 78%;
+    max-width: 70rem;
 }
 .container-nav-bar {
     box-sizing: border-box;
@@ -529,6 +529,5 @@ ul li {
 
 .divider-vertical {
     width: 1px;
-    border-radius: 1px;
     background-color: #f5f5f5;
 }

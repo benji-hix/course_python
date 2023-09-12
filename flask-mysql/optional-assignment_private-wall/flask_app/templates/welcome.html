@@ -22,7 +22,7 @@
                 {%for message in all_messages%}
                 <div class="flex between center-a">
                     <div class="container-mini flex v start-a">
-                        <p class="margin-b0">{{ message.sender_name }} said:</p>
+                        <p class="margin-b0">{{ message.sender_name }} said (<span class="crimson2">{{ message.time_elapsed }} ago</span>):</p>
                         <p class="margin-l2 margin-b0">{{ message.content }}</p>
                     </div>
                     <a href='/delete/{{ message.message_id }}' class="button-square"><img src="{{url_for('static', filename='icon-trash.png')}}" class="ratio-1-1 w2"></a>
@@ -53,7 +53,7 @@
                 {%for message in sent_messages%}
                 <div class="flex between center-a">
                     <div class="container-mini flex v start-a">
-                        <p class="margin-b0">To {{ message.receiver_name }}:</p>
+                        <p class="margin-b0">To {{ message.receiver_name }} (<span class="crimson2">{{ message.time_elapsed }} ago</span>):</p>
                         <p class="margin-l2 margin-b0">{{ message.content }}</p>
                     </div>
                     <a href='/delete/{{ message.message_id }}' class="button-square"><img src="{{url_for('static', filename='icon-trash.png')}}" class="ratio-1-1 w2"></a>

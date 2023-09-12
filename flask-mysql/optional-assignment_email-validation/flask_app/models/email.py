@@ -33,7 +33,7 @@ class Email:
         is_valid = True
         query = "SELECT * FROM emails WHERE email = %(form_email)s"
         unique_fail = connectToMySQL('schema_emails').query_db(query, email)
-        print(unique_fail)
+
 
         if len(email['form_email']) == 0:
             flash("Please enter an email")
