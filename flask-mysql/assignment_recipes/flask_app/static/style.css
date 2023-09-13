@@ -6,6 +6,7 @@
     align-items: center;
     background-color: #7a3833;
     padding: 1rem;
+    text-align: center;
 }
 .success {
     width: 100%;
@@ -16,6 +17,7 @@
     align-items: center;
     background-color: #305646;
     padding: 1rem;
+    text-align: center;
 }
 .textarea1 {
     width: 17rem;

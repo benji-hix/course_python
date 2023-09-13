@@ -22,17 +22,17 @@
                     <!-- first name -->
                     <label for="form_first_name" class="input">
                         <span class="f-textwrap-none">First Name:</span>
-                        <input type="text" name="form_first_name" class="w15">
+                        <input type="text" name="form_first_name" class="w15" value="{{ session['form_first_name_register'] }}">
                     </label>
                     <!-- last name -->
                     <label for="form_last_name" class="input">
                         <span class="f-textwrap-none">Last Name:</span>
-                        <input type="text" name="form_last_name" class="w15">
+                        <input type="text" name="form_last_name" class="w15" value="{{ session['form_last_name_register'] }}">
                     </label>
                     <!-- email -->
                     <label for="form_email" class="input">
                         <span class="f-textwrap-none">Email:</span>
-                        <input type="text" name="form_email" class="w15">
+                        <input type="text" name="form_email" class="w15" value="{{ session['form_email_register'] }}">
                     </label>
                     <!-- password -->
                     <label for="form_password" class="input">
@@ -61,7 +61,7 @@
                     <!-- email -->
                     <label for="form_email" class="input">
                         <span class="f-textwrap-none">Email:</span>
-                        <input type="text" name="form_email" class="w15">
+                        <input type="text" name="form_email" class="w15" value="{{ session['form_email_login'] }}">
                     </label>
                     <!-- password -->
                     <label for="form_password" class="input">
@@ -71,7 +71,7 @@
                     <input type="submit" class="button a-self-end" value="Submit">
                     <!--` error messages -->
                     {% for message in get_flashed_messages(category_filter=['login']) %}
-                    <div class="container-mini w-max flex j-center a-center error">
+                    <div class="error">
                         <span>{{ message }}</span>
                     </div>
                     {% endfor %}
