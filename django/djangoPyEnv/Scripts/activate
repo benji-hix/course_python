@@ -38,7 +38,7 @@ deactivate () {
 # unset irrelevant variables
 deactivate nondestructive
 
-VIRTUAL_ENV="D:\benji\Documents\coding-dojo\python\django\first_project\djangoPy3Env"
+VIRTUAL_ENV="D:\benji\Documents\coding-dojo\python\django\djangoPyEnv"
 export VIRTUAL_ENV
 
 _OLD_VIRTUAL_PATH="$PATH"
@@ -55,9 +55,9 @@ fi
 
 if [ -z "${VIRTUAL_ENV_DISABLE_PROMPT:-}" ] ; then
     _OLD_VIRTUAL_PS1="${PS1:-}"
-    PS1="(djangoPy3Env) ${PS1:-}"
+    PS1="(djangoPyEnv) ${PS1:-}"
     export PS1
-    VIRTUAL_ENV_PROMPT="(djangoPy3Env) "
+    VIRTUAL_ENV_PROMPT="(djangoPyEnv) "
     export VIRTUAL_ENV_PROMPT
 fi
 
