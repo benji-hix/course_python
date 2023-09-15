@@ -39,7 +39,7 @@ def submit_recipe():
 
     if not session['logged_in']: return redirect('/') #| validate login
     if not model_recipe.Recipe.validate_recipe(request.form): return redirect('/recipe-create') #| validate recipe
-
+    model_recipe.Recipe.create_recipe(request.form)
     return redirect('/recipes')
 
 
