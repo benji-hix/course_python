@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Users Shell</title>
+</head>
+<body>
+    <table>
+        <thead>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+        </thead>
+        {% for user in all_users %}
+        <tbody>
+            <td>{{user.id}}</td>
+            <td>{{user.first_name}} {{user.last_name}}</td>
+            <td>{{user.email_address}}</td>
+            <td>{{user.age}}</td>
+        </tbody>
+        {% endfor %}
+    </table>
+    <br>
+    <br>
+    <div>
+        <form action="/users/submit" method="post">
+            {% csrf_token %}
+            <div>
+                <label for="form_first_name">
+                    <span> First Name:</span>
+                    <input type="text" name="form_first_name">
+                </label>
+                <label for="form_last_name">
+                    <span> Last Name:</span>
+                    <input type="text" name="form_last_name">
+                </label>
+            </div>
+            <br>
+            <div>
+                <label for="form_email">
+                    <span>Email:</span>
+                    <input type="text" name="form_email">
+                </label>
+                <label for="form_age">
+                    <span>Age:</span>
+                    <input type="text" name="form_age">
+                </label>
+            </div>
+            <br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>

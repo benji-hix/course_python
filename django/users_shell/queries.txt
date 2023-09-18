@@ -1,0 +1,33 @@
+>>>
+benji_hix = User.objects.create(first_name='Benji',
+last_name='Hix',email_address='benji@test.com',age=26) 
+
+>>>
+judith_hix = User.objects.create(first_name='Judith',
+last_name='Hix',email_address='judith@test.com',age=57) 
+
+>>>
+liz_hix = User.objects.create(first_name='Liz',
+last_name='Hix',email_address='liz@test.com',age=29) 
+
+>>>
+all_users = User.objects.all()
+
+>>> 
+for m in all_users:
+    print(m)
+
+>>>
+User.objects.last()
+
+>>>
+User.objects.first()
+
+liz_hix = User.objects.get(id=3)
+liz_hix.last_name = 'Pancakes'
+liz_hix.save()
+
+all_users = User.objects.all().order_by('-first_name')
+for m in all_users:
+    print(m)
+
