@@ -1,0 +1,165 @@
+:root {
+    --transition-speed: 250ms;
+    --main-color-dark-1: #121417;
+    --main-color-dark-2: #101214;
+    --main-color-dark-3: #0b0d0e;
+    --main-color-medium-1: #17191c;
+    --main-color-medium-2: #151619;
+    --main-color-light-1: #ced4da;
+    --main-color-light-2: #adb5bd;
+    --main-color-white-1: #fafafa;
+    --main-color-white-2: #e9ebed;
+    --main-color-1: #c8a7af;
+    --main-color-2: #b87f8a;
+    --main-color-3: #ae6f7c;
+    --color-subtle-text: #64707d;
+}
+
+/*~ -------------------------------------------------------------------------- */
+/*~                                   nav-bar                                  */
+/*~ -------------------------------------------------------------------------- */
+
+
+.container-navbar-vertical {
+ position: absolute;
+ width: 4.5rem;
+ height: 100vh;   
+ transition: width var(--transition-speed) ease;
+}
+
+.navbar-list {
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: start;
+    gap: .5rem;
+}
+
+.navbar-link {
+    width: 4.5rem;
+    height: 3.5rem;
+    padding-inline: 1.75rem;
+    margin-bottom: 0;
+
+    display: flex;
+    align-items: center;
+    transition: all 100ms ease-out 0ms;
+    transition: width var(--transition-speed) ease;
+
+    text-decoration: none;
+    fill: #fafafa;
+}
+.navbar-link .b {
+    transition: all 100ms ease-out 10ms;
+}
+.navbar-link-icon2 {
+    aspect-ratio: 1/1;
+    width: 2rem;
+    margin-left: -.5rem;
+    position: absolute;
+    transition: all var(--transition-speed) ease;
+}
+.navbar-link-icon {
+    aspect-ratio: 1/1;
+    width: 1rem;
+    position: absolute;
+    transition: all var(--transition-speed) ease;
+}
+.navbar-link-text {
+    margin-left: 3.1rem;
+    /*behavior*/
+    opacity: 0;
+    transition: all 100ms ease-out 0ms;
+}
+
+.test1 {
+    margin-top: auto;
+}
+
+/*~ ------------------------------ navbar hover ------------------------------ */
+
+.container-navbar-vertical:hover {
+    width: 11rem;
+}
+.container-navbar-vertical:hover .navbar-link {
+    width: 11rem;
+}
+.container-navbar-vertical:hover .navbar-link-text {
+    opacity: 1;
+    transition: var(--transition-speed) ease 30ms;
+}
+.navbar-link:hover {
+    color: #b87f8a;
+    fill: #b87f8a;
+
+    background-color: var(--main-color-medium-2);
+    transition: var(--transition-speed) ease 30ms;
+}
+.navbar-link:hover .b {
+    fill: #b87f8a;
+    transition: var(--transition-speed) ease 30ms;
+}
+
+/** -------------------------------------------------------------------------- */
+/**                                 page style                                 */
+/** -------------------------------------------------------------------------- */
+
+.view-main {
+    margin-left: 4.5rem;
+    height: 100%;
+}
+
+.button-sign-in {
+    /* layout */
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    padding: .5rem 1.25rem;
+    display: flex;
+    gap: 1rem;
+
+    /* behavior */
+    transition: var(--transition-speed) ease 30ms;
+
+    /* style */
+    text-decoration: none;
+    background-color: var(--main-color-2);
+    letter-spacing: 1px;
+}
+
+.icon-sign-in {
+    aspect-ratio: 1/1;
+    width: .75rem;
+}
+
+.button-sign-in:hover {
+    background-color: var(--main-color-1);
+}
+
+/* .container-sign-in {
+    margin-top: 10rem;
+} */
+.text-welcome {
+    color: var(--main-color-white-1);
+    letter-spacing: 1px;
+}
+.text-please-enter {
+    color: var(--color-subtle-text);
+}
+.input-email {
+    padding: .5rem 1rem;
+}
+.button-continue {
+    border: none;
+    background-color: var(--main-color-2);
+    color: var(--main-color-white-1);
+    padding: .5rem 1rem;
+    width: 15rem;
+    letter-spacing: 1px;
+}
+.button-continue:hover {
+    background-color: var(--main-color-1);
+    cursor: pointer;
+}
