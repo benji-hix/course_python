@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>sign in</title>
+    <title>rupa</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'library_kamote.css' %}">
     <link rel="stylesheet" href="{% static 'index_style.css' %}">
@@ -71,24 +71,29 @@
     </div>
 
     <!--* main view -->
-    <div class="view-main bg-dark-1">
-        <div class="container container-form">
-            <form class="form form-login a-center w-content" method="post" action="/account/submit-login">
-                {% csrf_token %}
-                <h2 class="text-welcome">welcome to rupa</h2>
-                <p class="text-please-enter">enter your email and password</p>
+    <div class="m-l5 view-main bg-dark-1">
 
-                <label class="input w-content" for="form_email">
-                    <input type="text" placeholder="your email address" name="form_email" class="input-email w15">
-                </label>
-                <label class="input w-content" for="form_password">
-                    <input type="password" placeholder="your password" name="form_password" class="input-email w15">
-                </label>
-
-                <input type="submit" value="continue" class="button-continue">
-                <p class="text-not-member"> don't have an account? <a href="/account/register" class="text-register m-l1">register</a></p>
-            </form>
-        </div>
+            <!-- * sign-out button -->
+            <a class="button-sign-out" href="/logout">
+                <svg class="icon-sign-out" id="a" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 744.54 984">
+                    <defs>
+                        <style>
+                            .b{fill:#fafafa;}
+                        </style>
+                    </defs>
+                    <path class="b" d="m372.27,380.63c105.11,0,190.32-85.21,190.32-190.32S477.38,0,372.27,0s-190.32,85.21-190.32,190.32,85.21,190.32,190.32,190.32Zm0,104.72C166.67,485.35,0,636.78,0,823.56c0,1.59.01,3.17.04,4.75,94.79,96.12,226.55,155.69,372.23,155.69s277.43-59.57,372.23-155.69c.03-1.58.04-3.16.04-4.75,0-186.78-166.67-338.21-372.27-338.21Z" />
+                </svg>
+                <span class="f-textwrap-none ">sign-out</span>
+            </a>
+            
+            <div class="dictionary-entry m-center-h w-content">
+                <h1 class="text-word f3">rupa <span class="text-pos f2 f-main-2">noun</span></h1>
+                <p class="text-line2">ru•pa <span class="m-l1o5 text-pronounce">\ ru:pa \</span></p>
+                <h2 class="text-definition f-light-2">definition (singular)</h2>
+                <p class="text-one"><b>1</b> <span class="m-l1">face (from Ilocano <em>rupa</em>)</span></p>
+                <p class="text-two"><b>2</b> <span class="m-l1">a place to discover face and hand recognition technology</span></p>
+                <p class="text-two"><b>3</b> <span class="m-l1">social hub (sign in to learn more)</span></p>
+            </div>
     </div>
 
 </body>

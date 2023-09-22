@@ -121,37 +121,12 @@
 .view-main {
     margin-left: 4.5rem;
     height: 100vh;
-}
-
-.button-sign-in {
-    /* layout */
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    padding: .5rem 1.25rem;
+    padding-top: 1rem;
     display: flex;
-    gap: 1rem;
-
-    /* behavior */
-    transition: var(--transition-speed) ease 30ms;
-    animation: fadeInAnimation ease var(--fade-in-speed);
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-
-    /* style */
-    text-decoration: none;
-    background-color: var(--main-color-2);
-    letter-spacing: 1px;
+    justify-content: center;
+    align-items: center;
 }
 
-.icon-sign-in {
-    aspect-ratio: 1/1;
-    width: .75rem;
-}
-
-.button-sign-in:hover {
-    background-color: var(--main-color-1);
-}
 .button-sign-out {
     /* layout */
     position: fixed;
@@ -180,87 +155,93 @@
 .button-sign-out:hover {
     background-color: var(--main-color-1);
 }
-.form-login {
-    gap: 1rem;
-}
-.text-welcome {
-    color: var(--main-color-white-1);
-    letter-spacing: 1px;
-}
-.text-please-enter {
-    margin-top: -1rem;
-    margin-bottom: 0rem;
-    color: var(--color-subtle-text);
-}
-.input-email {
-    padding: .5rem 1rem;
-}
-.button-continue {
-    border: none;
-    background-color: var(--main-color-2);
-    color: var(--main-color-white-1);
-    padding: .5rem 1rem;
-    width: 15rem;
-    letter-spacing: 1px;
-    transition: var(--transition-speed) ease;
-}
-.button-continue:hover {
-    background-color: var(--main-color-1);
-    cursor: pointer;
-}
 
-.view-main {
-    margin-top: 0;
-    padding-top:1rem;
-    height: 100vh;
-}
-
-/*` -------------------------------------------------------------------------- */
-/*`                              dictionary entry                              */
-/*` -------------------------------------------------------------------------- */
-.dictionary-entry {
-    margin-top: 28vh;
-    margin-inline: auto;
-    animation: fadeInAnimation ease-in 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
-}
-.logo {
+.pulse {
+    /* margin-top:25vh;
+    margin-inline: auto; */
     aspect-ratio: 1/1;
-    width: 3rem;
-    top: 4rem;
-    right: 4rem;
-    position: relative;
-    transition: all var(--transition-speed) ease;
-}
-.text-line2 {
-    margin-top: -.75rem;
-}
-.text-pronounce {
-    font-size: 1rem;
-}
-/*` -------------------------------------------------------------------------- */
-/*`                                    forms                                   */
-/*` -------------------------------------------------------------------------- */
+    width: 15rem;
+    border-radius: 50%;
 
-.container-form {
-    margin-inline: auto;
-    margin-top: 25vh;
-    animation: fadeInAnimation ease 2s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: 3s ease;
+}
+.pulse:not(:hover):before{
+    content: "";
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 8rem;
+    background-color: var(--main-color-light-2);
+    border-radius: 50%;
+    z-index:10;
+    opacity: .5;
+    transition: 3s ease;
+}
+.pulse:hover:after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 8rem;
+    background-color: var(--main-color-2);
+    border-radius: 50%;
+    z-index:10;
+    opacity: .5;
+    transition: 3s ease;
+}
+.pulse:before{
+    animation: pulse 2s ease-out infinite;
+    animation-fill-mode: forwards;
+}
+.pulse:after {
+    animation: pulse 1s ease-out infinite ;
+    animation-fill-mode: forwards;
+}
+@keyframes pulse {
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+.background-fingerspell {
+    aspect-ratio: 1/1;
+    width: 8.5rem;
+    border-radius: 50%;
+    background-color: var(--main-color-medium-2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 20;
+    animation: fadeInAnimation ease var(--fade-in-speed);
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
 }
-.text-not-member {
-    color: var(--color-subtle-text);
-    font-size: .75rem;
-}
-.text-register {
+.button-fingerspell {
+    z-index: 30;
+    transition: var(--transition-speed) ease 30ms;
     text-decoration: none;
-    color: var(--main-color-light-2);
-    font-size: .75rem;
-    transition: var(--transition-speed) ease;
+    margin: 0;
+}
+.icon-fingerspell {
+    aspect-ratio: 1/1;
+    width: 2.5rem;
+    transition: var(--transition-speed) ease 30ms;
 }
 
-.text-register:hover {
+.button-fingerspell .f {
+    fill: var(--main-color-white-1);
+    transition: var(--transition-speed) ease 30ms;
+}
+
+.button-fingerspell:hover {
     color: var(--main-color-2);
+    cursor: pointer;
+    transition: var(--transition-speed) ease 30ms;
+
+}
+.button-fingerspell:hover .f{
+    fill: var(--main-color-2);
+    cursor: pointer;
+    transition: var(--transition-speed) ease 30ms;
 }

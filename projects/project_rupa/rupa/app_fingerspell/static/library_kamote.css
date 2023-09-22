@@ -3,6 +3,7 @@
 /*`                               style defaults                             */
 /* -------------------------------------------------------------------------- */
 /* -------------------------------------------------------------------------- */
+@import url("https://use.typekit.net/rca4avu.css");
 @import url("https://use.typekit.net/hjz0zyf.css");
 :root {
     --main-color-dark-1: #121417;
@@ -22,6 +23,7 @@
 * {
     margin: 0;
     padding: 0;
+    /* font-family: "minerva-modern", sans-serif; */
     font-family: "mr-eaves-modern", sans-serif;
 }
 
@@ -29,7 +31,6 @@
 body {
     height: 100vh;
     margin: 0;
-    color: var(--main-color-white-1);
 }
 
 h1 {

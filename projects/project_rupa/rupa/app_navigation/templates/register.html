@@ -73,10 +73,10 @@
     <!--* main view -->
     <div class="view-main bg-dark-1">
         <div class="container container-form">
-            <form class="form form-login a-center w-content" method="post" action="/account/submit-login">
+            <form class="form form-login a-center w-content" method="post" action="submit-register">
                 {% csrf_token %}
                 <h2 class="text-welcome">welcome to rupa</h2>
-                <p class="text-please-enter">enter your email and password</p>
+                <p class="text-please-enter">create an account</p>
 
                 <label class="input w-content" for="form_email">
                     <input type="text" placeholder="your email address" name="form_email" class="input-email w15">
@@ -84,9 +84,12 @@
                 <label class="input w-content" for="form_password">
                     <input type="password" placeholder="your password" name="form_password" class="input-email w15">
                 </label>
+                <label class="input w-content" for="form_confirm_password">
+                    <input type="password" placeholder="confirm password" name="form_confirm_password" class="input-email w15">
+                </label>
 
                 <input type="submit" value="continue" class="button-continue">
-                <p class="text-not-member"> don't have an account? <a href="/account/register" class="text-register m-l1">register</a></p>
+                <p class="text-not-member"> already have an account? <a href="/account" class="text-register m-l1">sign-in</a></p>
             </form>
         </div>
     </div>
